@@ -345,7 +345,13 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Skeleton.follow(mySprite3, 20)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
+    if (mySprite3 == 0) {
+        projectile = sprites.createProjectileFromSprite(assets.image`myImage0`, mySprite3, 50, 0)
+        pause(500)
+    }
+    if (true) {
+    	
+    }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.loopFrames(
@@ -724,7 +730,6 @@ info.player2.onLifeZero(function () {
 	
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
-    let projectile: Sprite = null
     animation.runImageAnimation(
     Skeleton,
     [img`
@@ -805,6 +810,7 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, oth
     sprites.destroy(projectile)
     sprites.destroy(Skeleton)
 })
+let projectile: Sprite = null
 let Skeleton: Sprite = null
 let mySprite3: Sprite = null
 let mySprite: Sprite = null
