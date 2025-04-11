@@ -345,7 +345,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     Skeleton.follow(mySprite3, 20)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (mySprite3 == 0) {
+    if (characterAnimations.matchesRule(mySprite3, characterAnimations.rule(Predicate.FacingRight))) {
         projectile = sprites.createProjectileFromSprite(assets.image`myImage0`, mySprite3, 50, 0)
         pause(500)
     }
